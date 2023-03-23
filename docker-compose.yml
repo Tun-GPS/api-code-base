@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+    dev:
+        container_name: core-api-container
+        image: mizhhieudoit/core-base-api:1.0.0
+        build:
+            context: .
+            target: development
+            dockerfile: ./Dockerfile
+        command: npm run start:debug
+        ports:
+            - 3111:3000
+        volumes:
+            - .:/var/www/node
+            - /var/www/node/node_modules
+        restart: unless-stopped
+    prod:
+        container_name: core-api-container-prod
+        image: mizhhieudoit/core-base-api-prod:1.0.0
+        build:
+            context: .
+            target: production
+            dockerfile: ./Dockerfile
+        command: npm run start:prod
+        ports:
+            - 3111:3000
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        restart: unless-stopped
