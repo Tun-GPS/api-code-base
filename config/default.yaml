@@ -1,0 +1,15 @@
+service:
+  name: api-core
+  alias: api-core
+  description: base core by mizhhieudo
+  baseUrl: /api/api-core
+  docsBaseUrl: /docs/api-core
+  environment: local
+  apiVersion: 0.1.0
+  appVersion: 0.1.0
+
+server:
+  host: 127.0.0.1
+  port: 3111
+  hostname: 127.0.0.1:3111
+  swaggerSchema: http
